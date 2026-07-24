@@ -23,6 +23,7 @@
           <a class="active" href="#events">Events</a>
           <a href="#calendar">Calendar</a>
           <a href="#interests">My interests <span id="nav-interest-count" class="nav-count">0</span></a>
+          <a href="#recent-section">Recently viewed</a>
         </nav>
         <button class="profile" type="button" aria-label="Open account menu">HP</button>
       </div>
@@ -51,7 +52,16 @@
       <section class="event-area" id="events" aria-labelledby="events-title">
         <div class="section-heading">
           <div><p class="eyebrow">Make a plan</p><h2 id="events-title">Upcoming events</h2></div>
-          <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Search events</span><input id="search-input" type="search" placeholder="Search events" autocomplete="off" /></label>
+          <div class="list-controls">
+            <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Search events</span><input id="search-input" type="search" placeholder="Search events" autocomplete="off" /></label>
+            <label class="sort-control"><span class="sr-only">Sort events</span><select id="sort-select">
+              <option value="default">Upcoming order</option>
+              <option value="date-asc">Date: nearest first</option>
+              <option value="recent">Recently added</option>
+              <option value="popular">Most interested</option>
+              <option value="interested-first">My interests first</option>
+            </select></label>
+          </div>
         </div>
         <div id="filters" class="filters" aria-label="Filter events by category"></div>
         <p id="result-note" class="result-note" role="status" aria-live="polite"></p>
@@ -59,12 +69,22 @@
         <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>No events found</h3><p>Try searching for another event or category.</p></div>
       </section>
 
+      <section class="event-area recommend-section" id="recommended" aria-labelledby="recommend-title" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Picked for you</p><h2 id="recommend-title">Recommended for you</h2></div></div>
+        <div id="recommend-grid" class="events-grid"></div>
+      </section>
+
       <section class="calendar-section" id="calendar" aria-labelledby="calendar-title">
         <div class="calendar-copy"><p class="eyebrow">Plan ahead</p><h2 id="calendar-title">Your campus calendar</h2><p>Dates with events are marked in gold. Select a day to see what’s on.</p><div id="date-events" class="date-events">Choose a marked date to view events.</div></div>
         <div class="calendar"><div class="calendar-head"><button id="prev-month" type="button" aria-label="Previous month">←</button><h3 id="month-label"></h3><button id="next-month" type="button" aria-label="Next month">→</button></div><div class="weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calendar-grid" class="calendar-grid" role="grid" aria-label="Events calendar"></div></div>
       </section>
 
-      <section class="interests-section" id="interests" aria-labelledby="interests-title"><div class="section-heading"><div><p class="eyebrow">Saved for you</p><h2 id="interests-title">My interests</h2></div></div><div id="interests-list" class="interests-list"></div></section>
+      <section class="interests-section" id="interests" aria-labelledby="interests-title"><div class="section-heading"><div><p class="eyebrow">Saved for you</p><h2 id="interests-title">My interests</h2></div></div><div id="interests-summary" class="interests-summary"></div><div id="interests-list" class="interests-list"></div></section>
+
+      <section class="interests-section recent-section" id="recent-section" aria-labelledby="recent-title" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Pick up where you left off</p><h2 id="recent-title">Recently viewed</h2></div></div>
+        <div id="recent-list" class="interests-list"></div>
+      </section>
     </main>
 
     <dialog id="event-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Close event details">×</button><div id="dialog-content"></div></dialog>
