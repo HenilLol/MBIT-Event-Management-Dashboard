@@ -1,1 +1,75 @@
-<a href="campus.html">Campus</a>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Discover and save MBIT campus events." />
+    <title>Campus Events | MBIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to events</a>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="#events" aria-label="Campus Events home">
+          <span class="brand-mark" aria-hidden="true"><img src="mbit-logo-clean.png" alt="" /></span>
+          <span>Campus <strong>Events</strong></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+          <a class="active" href="#events">Events</a>
+          <a href="#calendar">Calendar</a>
+          <a href="#interests">My interests <span id="nav-interest-count" class="nav-count">0</span></a>
+        </nav>
+        <button class="profile" type="button" aria-label="Open account menu">HP</button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">MBIT student life · 2026</p>
+          <h1 id="page-title">Discover what’s<br />happening on campus.</h1>
+          <p class="intro">Workshops, competitions, culture and more — all the moments worth showing up for, in one place.</p>
+        </div>
+        <div class="partner-marks" aria-label="CVM University and MBIT">
+          <img src="cvm-logo-clean.png" alt="CVM University" />
+          <i></i>
+          <img src="mbit-logo-clean.png" alt="Madhuben and Bhanubhai Patel Institute of Technology" />
+        </div>
+      </section>
+
+      <section class="summary" aria-label="Campus event summary">
+        <div><span id="upcoming-stat">06</span><p>Upcoming events</p></div>
+        <div><span>04</span><p>Events this week</p></div>
+        <div><span id="interest-stat">00</span><p>My interests</p></div>
+      </section>
+
+      <section class="event-area" id="events" aria-labelledby="events-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">Make a plan</p><h2 id="events-title">Upcoming events</h2></div>
+          <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Search events</span><input id="search-input" type="search" placeholder="Search events" autocomplete="off" /></label>
+        </div>
+        <div id="filters" class="filters" aria-label="Filter events by category"></div>
+        <p id="result-note" class="result-note" role="status" aria-live="polite"></p>
+        <div id="events-grid" class="events-grid"></div>
+        <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>No events found</h3><p>Try searching for another event or category.</p></div>
+      </section>
+
+      <section class="calendar-section" id="calendar" aria-labelledby="calendar-title">
+        <div class="calendar-copy"><p class="eyebrow">Plan ahead</p><h2 id="calendar-title">Your campus calendar</h2><p>Dates with events are marked in gold. Select a day to see what’s on.</p><div id="date-events" class="date-events">Choose a marked date to view events.</div></div>
+        <div class="calendar"><div class="calendar-head"><button id="prev-month" type="button" aria-label="Previous month">←</button><h3 id="month-label"></h3><button id="next-month" type="button" aria-label="Next month">→</button></div><div class="weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calendar-grid" class="calendar-grid" role="grid" aria-label="Events calendar"></div></div>
+      </section>
+
+      <section class="interests-section" id="interests" aria-labelledby="interests-title"><div class="section-heading"><div><p class="eyebrow">Saved for you</p><h2 id="interests-title">My interests</h2></div></div><div id="interests-list" class="interests-list"></div></section>
+    </main>
+
+    <dialog id="event-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Close event details">×</button><div id="dialog-content"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <footer><span>Campus Events</span><span>Built for the MBIT community</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
