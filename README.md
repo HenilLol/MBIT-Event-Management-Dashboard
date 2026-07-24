@@ -93,8 +93,8 @@ This allows user preferences to survive page refreshes.
 
 ----|Tech Stack|----
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - Vanilla JavaScript
 - Browser LocalStorage
 
