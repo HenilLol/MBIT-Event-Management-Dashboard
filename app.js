@@ -8,7 +8,8 @@ const events = [
  {id:7,title:'CodeSprint Challenge',category:'Competition',date:'2026-08-16',time:'10:00 AM – 2:00 PM',venue:'Computer Lab 4',organizer:'Programming Club',count:71,description:'Test your problem-solving skills in a timed coding challenge with rounds for every experience level.',addedAt:'2026-06-15'},
  {id:8,title:'Resume Workshop',category:'Workshop',date:'2026-08-03',time:'11:00 AM - 2:00 PM',venue:'MBIT Auditorium, A202',organizer:'Campus Career Center Advisors',count:304,description:'Helps you to make your resume and Linkedin profile stronger and professional. A great session to improve your resume and learn something new!',addedAt:'2026-06-18'},
  {id:9,title:'Blood Donation Camp',category:'Health Camps',date:'2026-07-28',time:'10:00 AM - 1:00 PM',venue:'Sports Ground ADIT',organizer:'NSS',count:1067,description:'Blood Donation Camp held by NSS.',addedAt:'2026-06-03'},
-];
+ {id:10,title:'Cyber Security Awareness Session',category:'Seminar',date:'2026-08-10',time:'2:00 PM - 4:00 PM',venue:'MBIT Auditorium, A202',organizer:'Police Department,Anand',count:89,description:'A Cyber Security Awareness Session held by the Police Department, Anand. This session will be an informative session on how you can prevent getting scammed and be safe during the internet era',addedAt:'2026-06-10'}
+ ];
 const categories=['All Events','Technical','Hackathon','Workshop','Cultural','Sports','Seminar','Competition','Health Camps'];
 let selectedCategory='All Events', query='', sortMode='default', interests=new Set(JSON.parse(localStorage.getItem('campus-interests')||'[]')), reminders=new Set(JSON.parse(localStorage.getItem('campus-reminders')||'[]')), recentlyViewed=JSON.parse(localStorage.getItem('campus-recent')||'[]'), calendarDate=new Date(2026,6,1), selectedDay=null;
 const $=s=>document.querySelector(s), grid=$('#events-grid'), dialog=$('#event-dialog');
