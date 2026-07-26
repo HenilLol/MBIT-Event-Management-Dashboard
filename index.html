@@ -25,7 +25,9 @@
           <a href="#interests">My interests <span id="nav-interest-count" class="nav-count">0</span></a>
           <a href="#recent-section">Recently viewed</a>
         </nav>
-        <button class="profile" type="button" aria-label="Open account menu">HP</button>
+        <button class="profile" type="button" aria-label="Open profile" id="profile-button">
+          HP
+        </button>
       </div>
     </header>
 
@@ -86,7 +88,76 @@
         <div id="recent-list" class="interests-list"></div>
       </section>
     </main>
+     <dialog id="profile-dialog" aria-labelledby="profile-title">
+  <button class="dialog-close" type="button" id="profile-close" aria-label="Close profile">×</button>
 
+  <div class="profile-panel">
+    <div class="profile-hero">
+      <div class="profile-avatar-large">HP</div>
+      <div>
+        <p class="eyebrow">Student profile</p>
+        <h2 id="profile-title">Henil Patel</h2>
+        <p id="profile-subtitle">1st Year · Computer Engineering</p>
+      </div>
+    </div>
+
+    <div class="profile-details" id="profile-details">
+      <div>
+        <span>Full Name</span>
+        <strong id="profile-name-display">Henil Patel</strong>
+      </div>
+
+      <div>
+        <span>Year of Study</span>
+        <strong id="profile-year-display">1st Year</strong>
+      </div>
+
+      <div>
+        <span>Branch / Stream</span>
+        <strong id="profile-branch-display">Computer Engineering</strong>
+      </div>
+    </div>
+
+    <form id="profile-form" class="profile-form" hidden>
+      <label>
+        Full Name
+        <input id="profile-name-input" type="text" required />
+      </label>
+
+      <label>
+        Year of Study
+        <select id="profile-year-input" required>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+        </select>
+      </label>
+
+      <label>
+        Branch / Stream
+        <select id="profile-branch-input" required>
+          <option>Computer Engineering</option>
+          <option>Information Technology</option>
+          <option>Mechanical Engineering</option>
+          <option>Civil Engineering</option>
+          <option>Electrical Engineering</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <button type="submit" class="register-submit">
+        Save Changes
+      </button>
+    </form>
+
+    <div class="profile-actions">
+      <button id="edit-profile-button" class="interest-btn" type="button">
+        Edit Profile
+      </button>
+    </div>
+  </div>
+</dialog>
     <dialog id="event-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Close event details">×</button><div id="dialog-content"></div></dialog>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <footer><span>Campus Connect</span><span>Built for the MBIT community</span></footer>
