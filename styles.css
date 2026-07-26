@@ -1113,3 +1113,162 @@ a:focus-visible {
     padding-bottom: 0;
   }
 }
+/* ===============================
+   FINAL GUI POLISH
+   Existing Campus Connect palette
+   =============================== */
+
+/* Upcoming Events + My Interests headings */
+.section-heading h2 {
+  letter-spacing: -1.4px;
+}
+
+.section-heading {
+  margin-bottom: 4px;
+}
+
+/* Event cards */
+.event-card {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  border-color: #a9c1d0;
+  box-shadow: 0 10px 25px rgba(23, 48, 74, .08);
+}
+
+.event-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Search bar */
+.search {
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.search:hover {
+  border-color: #9eb9c9;
+}
+
+.search:focus-within {
+  border-color: var(--blue-dark);
+  box-shadow: 0 4px 15px rgba(23, 106, 167, .08);
+}
+
+/* Filters */
+.filter {
+  transition: all .18s ease;
+}
+
+.filter:hover {
+  transform: translateY(-1px);
+}
+
+/* Interest buttons */
+.interest-btn,
+.reminder-btn {
+  transition: all .18s ease;
+}
+
+.interest-btn:hover,
+.reminder-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* My Interests summary tiles */
+.interests-summary {
+  gap: 16px;
+}
+
+.summary-tile {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.summary-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(23, 48, 74, .07);
+}
+
+/* Saved event rows */
+.interest-item {
+  transition: background .2s ease, padding-left .2s ease;
+  border-radius: 6px;
+}
+
+.interest-item:hover {
+  background: #fbfcfd;
+  padding-left: 8px;
+}
+
+/* Calendar */
+.calendar {
+  box-shadow: 0 6px 20px rgba(23, 48, 74, .04);
+}
+
+.calendar-head button {
+  transition: all .18s ease;
+}
+
+.calendar-head button:hover {
+  background: #e5f0f7;
+  transform: scale(1.05);
+}
+
+.day {
+  transition: all .15s ease;
+}
+
+.day:hover:not(:disabled) {
+  transform: scale(1.08);
+}
+
+/* Dialog */
+dialog {
+  animation: dialogAppear .2s ease-out;
+}
+
+@keyframes dialogAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Toast */
+.toast {
+  box-shadow: 0 8px 24px rgba(23, 48, 74, .2);
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .event-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .interest-item:hover {
+    padding-left: 0;
+    background: transparent;
+  }
+}
