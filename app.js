@@ -80,3 +80,89 @@ $('#prev-month').onclick=()=>{calendarDate.setMonth(calendarDate.getMonth()-1);s
 $('#next-month').onclick=()=>{calendarDate.setMonth(calendarDate.getMonth()+1);selectedDay=null;renderCalendar()};
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 renderAll();
+/* ===============================
+   PROFILE SYSTEM
+   =============================== */
+
+const defaultProfile = {
+  name: "Henil Patel",
+  year: "1st Year",
+  branch: "Computer Engineering"
+};
+
+let profileData = JSON.parse(
+  localStorage.getItem("campus-profile")
+) || defaultProfile;
+
+const profileButton = $("#profile-button");
+const profileDialog = $("#profile-dialog");
+const profileForm = $("#profile-form");
+const editProfileButton = $("#edit-profile-button");
+
+function renderProfile() {
+  $("#profile-title").textContent = profileData.name;
+  $("#profile-subtitle").textContent =
+    `${profileData.year} · ${profileData.branch}`;
+
+  $("#profile-name-display").textContent = profileData.name;
+  $("#profile-year-display").textContent = profileData.year;
+  $("#profile-branch-display").textContent = profileData.branch;
+
+  profileButton.textContent = profileData.name
+    .split(" ")
+    .map(word => word[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function openProfile() {
+  renderProfile();
+  $("#profile-details").hidden = false;
+  profileForm.hidden = true;
+  profileDialog.showModal();
+}
+
+profileButton.addEventListener("click", openProfile);
+
+$("#profile-close").addEventListener("click", () => {
+  profileDialog.close();
+});
+
+editProfileButton.addEventListener("click", () => {
+  $("#profile-details").hidden = true;
+  profileForm.hidden = false;
+
+  $("#profile-name-input").value = profileData.name;
+  $("#profile-year-input").value = profileData.year;
+  $("#profile-branch-input").value = profileData.branch;
+});
+
+profileForm.addEventListener("submit", event => {
+  event.preventDefault();
+
+  profileData = {
+    name: $("#profile-name-input").value.trim(),
+    year: $("#profile-year-input").value,
+    branch: $("#profile-branch-input").value
+  };
+
+  localStorage.setItem(
+    "campus-profile",
+    JSON.stringify(profileData)
+  );
+
+  renderProfile();
+  $("#profile-details").hidden = false;
+  profileForm.hidden = true;
+
+  toast("Profile updated successfully.");
+});
+
+profileDialog.addEventListener("click", event => {
+  if (event.target === profileDialog) {
+    profileDialog.close();
+  }
+});
+
+renderProfile();
