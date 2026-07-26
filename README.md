@@ -170,6 +170,30 @@ Recently viewed events:
 - Persist after page refresh
 - Can be opened through the normal event details modal
 
+(16) Event Registration
+
+Students can register for events directly through the event details panel by entering:
+
+Full Name
+Year of Study
+Branch / Stream
+
+Registration details are saved locally, and registered events are marked as Registered for the user.
+
+(17) Editable Student Profile
+
+The profile section allows students to view and update their personal academic information:
+
+Full Name
+Year of Study
+Branch / Stream
+
+Profile details can be edited anytime and are saved locally so they remain available after refreshing the page.
+
+(18) Special Gui
+
+I've tried to keep the GUI by keeping the CVMU and MBIT logo and keeping the color palletes of the colors included in the logos only, making it a special GUI which can be directly used by the college.
+
 ----|Local Persistence|----
 
 The application uses browser LocalStorage to preserve:
